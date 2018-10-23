@@ -9,6 +9,25 @@ package Modelo;
  *
  * @author YUYAN
  */
-public class Humano {
+public class Humano extends Seres{
+    private int velocidad;
+    private static int id_prox;
+    
+    public  Humano(){
+        super.setId(id_prox + 1);
+    }
+    
+   
+    public int getHijo(){
+        
+    }
+    
+    @Override
+    public String toString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
     
 }
