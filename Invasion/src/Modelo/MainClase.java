@@ -9,6 +9,6 @@ package Modelo;
  *
  * @author YUYAN
  */
-public class NewClass {
+public class MainClase {
     
 }
