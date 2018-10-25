@@ -16,11 +16,16 @@ public abstract class Seres {
     private int dia_nacimiento;
     private boolean estado_vivo;  // si es true esta vivo, si es false esta muerto 
     
+    
     public Seres(){
         this.dia_nacimiento = 0;
         estado_vivo = false;
     }
     
+    public boolean getTocadoProbabilidad(int num){
+        return getNumeroAleatorio(1, num) == 1;
+    }
+            
     public void setNacer(int dia){
         this.dia_nacimiento = dia;
         estado_vivo = true;
@@ -41,9 +46,10 @@ public abstract class Seres {
     public void setId(int id){
         this.id = id;
     }
+    
     public abstract String toString();
     
-    public int getNumeroAletatorio(int min, int max){
+    public int getNumeroAleatorio(int min, int max){
         Random random = new Random();
         int num;
         num = random.nextInt(max - min +1)+min;
