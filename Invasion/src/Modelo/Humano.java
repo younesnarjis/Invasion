@@ -29,7 +29,7 @@ public class Humano extends Seres{
     }
     
     public boolean getSobrevivir(){
-        if(super.getTocadoProbabilidad(300)){
+        if(super.getTocadoProbabilidad(300,1)){
             super.setMorir();
             return false;
         }
@@ -49,7 +49,7 @@ public class Humano extends Seres{
     }
     
     public boolean getReproducir(){
-       return super.getTocadoProbabilidad(probabilidad_reproduccion);
+       return super.getTocadoProbabilidad(probabilidad_reproduccion, 1);
     }
     
    

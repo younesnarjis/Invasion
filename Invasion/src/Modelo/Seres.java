@@ -22,8 +22,8 @@ public abstract class Seres {
         estado_vivo = false;
     }
     
-    public boolean getTocadoProbabilidad(int num){
-        return getNumeroAleatorio(1, num) == 1;
+    public boolean getTocadoProbabilidad(int num_total, int num_probabilidad){
+        return getNumeroAleatorio(1, num_total) <= 1;
     }
             
     public void setNacer(int dia){

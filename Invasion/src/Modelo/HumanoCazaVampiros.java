@@ -12,10 +12,24 @@ package Modelo;
 public class HumanoCazaVampiros extends Humano{
     private int probabilidad_caza;
     private int num_vampiros; 
+    private static int id_prox;
     
     public HumanoCazaVampiros(int dia) {
         super(dia);
+        super.setId(id_prox+1);
+        num_vampiros = 0;
     }
     
+    public boolean getMataVampiro(){
+        return super.getTocadoProbabilidad(3,1);
+    }
+    
+    public void setMataVampiro(){
+        num_vampiros ++;
+    }
+    
+    public int getNumVampirosMatado(){
+        return num_vampiros;
+    }
     
 }
