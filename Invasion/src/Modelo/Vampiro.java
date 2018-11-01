@@ -14,8 +14,9 @@ public class Vampiro extends Seres{
     private static int id_aprox;
  
     
-    public Vampiro(){
+    public Vampiro(int dia){
         super.setId(id_aprox + 1);
+        super.setNacer(dia);
         this. num_vamp_generados = 0;
     }
     
