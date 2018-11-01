@@ -27,8 +27,7 @@ public class Invacion {
         caza_vampiros = new ArrayList<>();
         vampiros = new ArrayList<>();
         zombies = new ArrayList<>();
-        dia = 1;
-        temperatura = 20;
+
     }
 
     public void setCrearHumanos(int num) {
@@ -106,6 +105,10 @@ public class Invacion {
     }
 
     public void setGenerarMundo() {
+        vampiros.clear();
+        zombies.clear();
+        humanos.clear();
+        caza_vampiros.clear();
         int num_h = getNumeroAleatorio(4000, 6000);
         int num_hcv = getNumeroAleatorio(10, 15);
         int num_v = getNumeroAleatorio(15, 20);
@@ -114,6 +117,8 @@ public class Invacion {
         setCrearHumanosCazaVampiro(num_hcv);
         setCrearVampiros(num_v);
         setCrearZombies(num_z);
+                dia = 1;
+        temperatura = 20;
     }
 
     public void setTranscurrirDia() {

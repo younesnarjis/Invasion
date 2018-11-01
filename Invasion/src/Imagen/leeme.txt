@@ -1,0 +1,5 @@
+en Inicio.java falta organizar :
+    - temperatura 
+    - acontecimientos 
+    - Listener de cada boton 
+
