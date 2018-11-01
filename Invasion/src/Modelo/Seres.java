@@ -23,7 +23,7 @@ public abstract class Seres {
     }
     
     public boolean getTocadoProbabilidad(int num_total, int num_probabilidad){
-        return getNumeroAleatorio(1, num_total) <= 1;
+        return getNumeroAleatorio(1, num_total) <= num_probabilidad;
     }
             
     public void setNacer(int dia){

@@ -29,9 +29,6 @@ public class Vampiro extends Seres{
          num_vamp_generados ++;
     }
     
-    public boolean getAlimentaHumano(){
-        return super.getTocadoProbabilidad(2, 1);
-    }
     
     
     @Override
