@@ -23,17 +23,8 @@ public class Zombie extends Seres{
     public boolean tocaHumano(){
         return super.getTocadoProbabilidad(10, 1);
     }
-    
 
-    
     public void setNumHumanoZombie(){
         num_humano_zombie ++;
     }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

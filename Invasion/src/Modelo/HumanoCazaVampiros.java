@@ -31,5 +31,4 @@ public class HumanoCazaVampiros extends Humano{
     public int getNumVampirosMatado(){
         return num_vampiros;
     }
-    
 }

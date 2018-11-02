@@ -5,10 +5,8 @@
  */
 package Vista;
 
-
 import Modelo.Invacion;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -21,10 +19,9 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        invacion = new Invacion();
-        
-        
+        invacion = new Invacion(); 
     }
+    
     public void setTodoTextNoEditable(){
         jTextCazaVampInicio.setEditable(false);
         jTextVampirosInicio.setEditable(false);
@@ -59,21 +56,14 @@ public class Inicio extends javax.swing.JFrame {
 
         jTextInfo.setText(s);
     }
-    
-    
-    
-    
-    
+
     public void setInfoInicio(String h, String c, String v, String z){
         jTextCazaVampInicio.setText(c);
         jTextVampirosInicio.setText(v);
         jTextZombisInicio.setText(z);
         jTextHumanoInicio.setText(h);
-        
-        
+   
     }
-
-    
     
     public void setInfoActual(String h, String c, String v, String z, String dia, String t){
         jTextCazaVamp.setText(c);
@@ -445,8 +435,7 @@ public class Inicio extends javax.swing.JFrame {
         jTextInfo.append(invacion.toString());
        
     }
-    
-    
+     
     private void ButtonAvanzar10DiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAvanzar10DiasActionPerformed
         // TODO add your handling code here:
         jTextInfo.setText("");

@@ -32,12 +32,10 @@ public class Invacion {
 
     }
     
-    
     public void setVaciarEstadistica(){
         for(int i = 0; i < estadistica.length; i++)
             estadistica[i] = 0;
     }
-    
     
     public String toString(){
         String s;
@@ -54,8 +52,6 @@ public class Invacion {
         return s;
     }
     
-    
-
     public void setCrearHumanos(int num) {
         int i;
         Humano h;
@@ -94,6 +90,7 @@ public class Invacion {
     public String getNumeroVampiros(){
         return Integer.toString(vampiros.size());
     }
+    
     public void setCrearZombies(int num) {
         int i;
         Zombie h;
@@ -115,8 +112,6 @@ public class Invacion {
         dia++;
     }
     
-    
-
     public void setTemperatura() {
 
         int num = getNumeroAleatorio(1, 100);
@@ -160,7 +155,7 @@ public class Invacion {
         setCrearHumanosCazaVampiro(num_hcv);
         setCrearVampiros(num_v);
         setCrearZombies(num_z);
-                dia = 1;
+        dia = 1;
         temperatura = 20;
     }
 
@@ -291,7 +286,6 @@ public class Invacion {
             }
         }
 
-        
         estadistica[4] = h;
         estadistica[5] = nacer.size();
         estadistica[6] = morir.size();
@@ -342,7 +336,6 @@ public class Invacion {
         estadistica[8] = morir.size();
         estadistica[9] = nacer.size();
         
-        
         for (i = 0; i < morir.size(); i++) {
             zombies.remove(morir.get(i));
         }
@@ -380,7 +373,6 @@ public class Invacion {
         }
 
         return zom;
-
     }
 
     public int getNumeroAleatorio(int min, int max) {
@@ -390,5 +382,4 @@ public class Invacion {
 
         return num;
     }
-
 }
