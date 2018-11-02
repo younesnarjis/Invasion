@@ -13,7 +13,7 @@ import java.util.Random;
  *
  * @author YUYAN
  */
-public class Invacion {
+public class Invasion {
 
     private ArrayList<Humano> humanos;
     private ArrayList<HumanoCazaVampiros> caza_vampiros;
@@ -23,7 +23,7 @@ public class Invacion {
     private int[] estadistica;
     private float temperatura;
 
-    public Invacion() {
+    public Invasion() {
         humanos = new ArrayList<>();
         caza_vampiros = new ArrayList<>();
         vampiros = new ArrayList<>();
@@ -41,12 +41,12 @@ public class Invacion {
     
     public String toString(){
         String s;
-        s = "-------------\nDia: " + dia + "\nTemperatura: " + temperatura +"\n-------------\n";
+        s = "\n-------------\nDia: " + dia + "\nTemperatura: " + temperatura +"\n-------------\n";
         s += estadistica[0] + "\thumanos han nacido\n" + estadistica[1] + "\thumanos ha muerto por muerte natural o accidente\n"+
                 estadistica[2] + "\thumanos de caza vampiros han nacido\n" + estadistica[3] + "\thumanos de caza vampiros han muerto" +
                 " por muerte natura o accidente\n" + estadistica[4] + "\thumanos han sido mordeado por vampiros\n" + estadistica[5]+
                 "\thumanos han convertido a vampiros\n" + (estadistica[4] - estadistica[5]) + "\thumanos han muertos por que han sido" +
-                "mordeado por vampiros\n" + (estadistica[6] + estadistica[7]) + "\tvampiros han muerto\n" + estadistica[7] + 
+                " mordeado por vampiros\n" + (estadistica[6] + estadistica[7]) + "\tvampiros han muerto\n" + estadistica[7] + 
                  "\tvampiros han muerto por humano de caza vampiros\n" + estadistica[6] + "\tvampiros han muerto por inanición\n"+
                 estadistica[8] + "\tzombies han muertos por hambre\n" + estadistica[9] + "\thumanos o humanos de caza vampiros han "+
                 "convertido zombies.";
@@ -54,7 +54,11 @@ public class Invacion {
         return s;
     }
     
-    
+    public void setCambiarProbabilidadZombies(int p){
+        for(int i = 0; i < zombies.size(); i++){
+            zombies.get(i).setProbabilidadTocaHumano(p);
+        }
+    }
 
     public void setCrearHumanos(int num) {
         int i;
@@ -116,10 +120,13 @@ public class Invacion {
     }
     
     
-
+    public void setAumentaLaTemperatura(float t){
+        temperatura += t;
+    }
+    
     public void setTemperatura() {
 
-        int num = getNumeroAleatorio(1, 100);
+        int num = Constante.getNumeroAleatorio(1, 100);
         if (temperatura >= 22) {
             if (num <= 55) {
                 temperatura -= 0.5;
@@ -152,10 +159,10 @@ public class Invacion {
         zombies.clear();
         humanos.clear();
         caza_vampiros.clear();
-        int num_h = getNumeroAleatorio(4000, 6000);
-        int num_hcv = getNumeroAleatorio(10, 15);
-        int num_v = getNumeroAleatorio(15, 20);
-        int num_z = getNumeroAleatorio(20, 30);
+        int num_h = Constante.getNumeroAleatorio(4000, 6000);
+        int num_hcv = Constante.getNumeroAleatorio(10, 15);
+        int num_v = Constante.getNumeroAleatorio(15, 20);
+        int num_z = Constante.getNumeroAleatorio(20, 30);
         setCrearHumanos(num_h);
         setCrearHumanosCazaVampiro(num_hcv);
         setCrearVampiros(num_v);
@@ -165,8 +172,7 @@ public class Invacion {
     }
 
     public void setTranscurrirDia() {
-        setPasarDia();
-        setTemperatura();
+
         setVaciarEstadistica();
         setVidaHumano();
         setVidaHumanoCazaVampiro();
@@ -239,7 +245,7 @@ public class Invacion {
                 }
 
                 if (h.getMataVampiro() && vampiros.size() > 1) {
-                    num = getNumeroAleatorio(0, vampiros.size() - 1);
+                    num = Constante.getNumeroAleatorio(0, vampiros.size() - 1);
                     h.setMataVampiro();
                     vam.add(vampiros.get(num));
                 }
@@ -279,7 +285,7 @@ public class Invacion {
                 if (humanos.isEmpty()) {
                     morir.add(vampiros.get(i));
                 } else {
-                    num = getNumeroAleatorio(0, humanos.size() - 1);
+                    num = Constante.getNumeroAleatorio(0, humanos.size() - 1);
                     h++;
                     v = humanos.get(num).getConvierteVampiro();
                     humanos.remove(num);
@@ -328,6 +334,7 @@ public class Invacion {
 
         for (i = 0; i < zombies.size(); i++) {
             // no cuenta el dia de nacimiento 
+            System.out.println("Zombies " + zombies.get(i).getId() + " probabilidad: " + zombies.get(i).getProbabilidad());
             if ((dia - zombies.get(i).getDiaNacimiento()) == 8) {
                 morir.add(zombies.get(i));
             } else {
@@ -383,12 +390,6 @@ public class Invacion {
 
     }
 
-    public int getNumeroAleatorio(int min, int max) {
-        Random random = new Random();
-        int num;
-        num = random.nextInt(max - min + 1) + min;
-
-        return num;
-    }
+  
 
 }

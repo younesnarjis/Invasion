@@ -13,14 +13,17 @@ public class Humano extends Seres {
 
     private int velocidad;
     private static int id_prox;
-    private final int probabilidad_muerte;
+    private int probabilidad_muerte;
+    private int probabilidad_muerte_otro;
     private int probabilidad_reproduccion;
 
     public Humano(int dia) {
         super.setNacer(dia);
-        velocidad = super.getNumeroAleatorio(60, 100);
+        velocidad = Constante.getNumeroAleatorio(60, 100);
         super.setId(id_prox + 1);
+        id_prox += 1;
         probabilidad_muerte = 300;
+        probabilidad_muerte_otro = 50;
         probabilidad_reproduccion = 30;
     }
 
@@ -33,7 +36,7 @@ public class Humano extends Seres {
     }
 
     public Vampiro getConvierteVampiro() {
-        if (super.getTocadoProbabilidad(2, 1)) {
+        if (Constante.getTocadoProbabilidad(2, 1)) {
             Vampiro v = new Vampiro(this.getDiaNacimiento());
             return v;
         }
@@ -47,10 +50,10 @@ public class Humano extends Seres {
     }
 
     public boolean getSobrevivir() {
-        if (super.getTocadoProbabilidad(300, 1)) {
+        if (Constante.getTocadoProbabilidad(probabilidad_muerte_otro, 1)) {
             super.setMorir();
             return false;
-        } else if (super.getTocadoProbabilidad(500, 1)) {
+        } else if (Constante.getTocadoProbabilidad(probabilidad_muerte, 1)) {
             super.setMorir();
             return false;
         } else {
@@ -70,11 +73,11 @@ public class Humano extends Seres {
 
     public boolean getReproducir(float temp) {
         this.setProbabilidadReproduccion(temp);
-        return super.getTocadoProbabilidad(probabilidad_reproduccion, 1);
+        return Constante.getTocadoProbabilidad(probabilidad_reproduccion, 1);
     }
 
     public int getHijo() {
-        int num = super.getNumeroAleatorio(1, 3);
+        int num = Constante.getNumeroAleatorio(1, 3);
         return num;
     }
 

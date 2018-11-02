@@ -18,10 +18,11 @@ public class HumanoCazaVampiros extends Humano{
         super(dia);
         super.setId(id_prox+1);
         num_vampiros = 0;
+        id_prox += 1;
     }
     
     public boolean getMataVampiro(){
-        return super.getTocadoProbabilidad(3,1);
+        return Constante.getTocadoProbabilidad(3,1);
     }
     
     public void setMataVampiro(){

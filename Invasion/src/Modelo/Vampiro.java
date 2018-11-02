@@ -11,16 +11,20 @@ package Modelo;
  */
 public class Vampiro extends Seres{
     private int num_vamp_generados;
-    private static int id_aprox;
+    private static int id_prox;
  
     public Vampiro(int dia){
-        super.setId(id_aprox + 1);
+        super.setId(id_prox + 1);
         super.setNacer(dia);
+        id_prox += 1;
         this. num_vamp_generados = 0;
     }
     
+    
+    
+    
     public boolean getMataHumano(){
-        return super.getTocadoProbabilidad(2, 1);
+        return Constante.getTocadoProbabilidad(2, 1);
     }
 
     public void setNumConvertirVampiros(){

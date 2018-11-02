@@ -5,27 +5,31 @@
  */
 package Vista;
 
-
-import Modelo.Invacion;
+import Modelo.Constante;
+import Modelo.Invasion;
 import javax.swing.JOptionPane;
-
 
 /**
  *
  * @author Younes
  */
 public class Inicio extends javax.swing.JFrame {
-    Invacion invacion;
+
+    Invasion invacion;
+    int acontecimiento;
+    boolean pulsado;
+
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
-        invacion = new Invacion();
-        
-        
+        invacion = new Invasion();
+        pulsado = false;
+        acontecimiento = 0;
     }
-    public void setTodoTextNoEditable(){
+
+    public void setTodoTextNoEditable() {
         jTextCazaVampInicio.setEditable(false);
         jTextVampirosInicio.setEditable(false);
         jTextZombisInicio.setEditable(false);
@@ -38,8 +42,8 @@ public class Inicio extends javax.swing.JFrame {
         jTextDia.setEditable(false);
         jTextTem.setEditable(false);
     }
-    
-    public void setIniciar(){
+
+    public void setIniciar() {
         setTodoTextNoEditable();
         String h, c, v, z, d, t, s;
         invacion.setGenerarMundo();
@@ -59,33 +63,24 @@ public class Inicio extends javax.swing.JFrame {
 
         jTextInfo.setText(s);
     }
-    
-    
-    
-    
-    
-    public void setInfoInicio(String h, String c, String v, String z){
+
+    public void setInfoInicio(String h, String c, String v, String z) {
         jTextCazaVampInicio.setText(c);
         jTextVampirosInicio.setText(v);
         jTextZombisInicio.setText(z);
         jTextHumanoInicio.setText(h);
-        
-        
+
     }
 
-    
-    
-    public void setInfoActual(String h, String c, String v, String z, String dia, String t){
+    public void setInfoActual(String h, String c, String v, String z, String dia, String t) {
         jTextCazaVamp.setText(c);
         jTextVampiros.setText(v);
         jTextZombis.setText(z);
         jTextHumanos.setText(h);
         jTextDia.setText(dia);
         jTextTem.setText(t);
-        
 
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -128,6 +123,9 @@ public class Inicio extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jTextTem = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jButtonCalentamiento = new javax.swing.JButton();
+        jButtonEnfriamiento = new javax.swing.JButton();
+        jButtonInvasion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -346,7 +344,32 @@ public class Inicio extends javax.swing.JFrame {
 
         jTextTem.setText("jTextDia");
 
-        jLabel14.setText("Acontecimientos");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("Acontecimientos:");
+
+        jButtonCalentamiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonCalentamiento.setText("Calentamiento Global");
+        jButtonCalentamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCalentamientoActionPerformed(evt);
+            }
+        });
+
+        jButtonEnfriamiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonEnfriamiento.setText("Enfriamiento Global");
+        jButtonEnfriamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEnfriamientoActionPerformed(evt);
+            }
+        });
+
+        jButtonInvasion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonInvasion.setText("Invasión de Zombies");
+        jButtonInvasion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInvasionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -356,37 +379,43 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(51, 51, 51)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jButtonCalentamiento)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(38, 38, 38)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel13)
+                                                            .addComponent(jLabel14))
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jTextTem, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jButtonEnfriamiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jButtonInvasion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonReiniciar)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonAvanzarUnDia)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonAvanzar10Dias)
-                                .addGap(227, 227, 227)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(51, 51, 51)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel12)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(38, 38, 38)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel13)
-                                                    .addComponent(jLabel14))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextTem, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))))))))
+                                .addGap(210, 210, 210)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(314, 314, 314)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 49, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,8 +431,14 @@ public class Inicio extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel13)
                                     .addComponent(jTextTem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel14)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonCalentamiento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonEnfriamiento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonInvasion)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
@@ -427,14 +462,40 @@ public class Inicio extends javax.swing.JFrame {
     private void jButtonAvanzarUnDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAvanzarUnDiaActionPerformed
         // TODO add your handling code here:
         jTextInfo.setText("");
+
         setPasaUnDia();
-            JOptionPane.showMessageDialog(this, "Un dia ha terminado");
-        
+        JOptionPane.showMessageDialog(this, "Un dia ha terminado");
+
     }//GEN-LAST:event_jButtonAvanzarUnDiaActionPerformed
 
-    public void setPasaUnDia(){
-        invacion.setTranscurrirDia();
+    public void setPasaUnDia() {
         String h, c, v, d, t, z;
+        int tem;
+        invacion.setPasarDia();
+        switch (acontecimiento) {
+            case 1:
+                tem = 10;
+                jTextInfo.append("Acontecimiento : CALENTAMIENTO GLOBAL\n");
+                break;
+            case 2:
+                tem = -10;
+                jTextInfo.append("Acontecimiento : ENFRIAMIENTO GLOBAL\n");
+                break;
+            case 3:
+                jTextInfo.append("Acontecimiento : INVACION DE ZOMBIES\n");
+                invacion.setCambiarProbabilidadZombies(3);
+            default:
+                tem = 0;
+        }
+
+        //si is 0 no surge acontecimiento 
+        if (tem == 0) {
+            invacion.setTemperatura();
+        } else {
+            invacion.setAumentaLaTemperatura(tem);
+        }
+        invacion.setTranscurrirDia();
+
         h = invacion.getNumeroHumanos();
         c = invacion.getNumeroHumanosCazaVampiros();
         z = invacion.getNumeroZombies();
@@ -443,22 +504,22 @@ public class Inicio extends javax.swing.JFrame {
         t = invacion.getTemperatura();
         setInfoActual(h, c, v, z, d, t);
         jTextInfo.append(invacion.toString());
-       
+        setActivarJButtonAcontecimiento();
+
     }
-    
-    
+
+
     private void ButtonAvanzar10DiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAvanzar10DiasActionPerformed
         // TODO add your handling code here:
         jTextInfo.setText("");
-        for(int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             setPasaUnDia();
         }
-        
+
         JOptionPane.showMessageDialog(this, "10 dias han terminado");
     }//GEN-LAST:event_ButtonAvanzar10DiasActionPerformed
 
-   
-    
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -471,7 +532,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonReiniciarActionPerformed
 
     private void jTextCazaVampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCazaVampActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextCazaVampActionPerformed
 
     private void jTextHumanoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextHumanoInicioActionPerformed
@@ -482,11 +543,59 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextVampirosInicioActionPerformed
 
+    private void jButtonCalentamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalentamientoActionPerformed
+        // TODO add your handling code here:
+
+        if (!pulsado) {
+            pulsado = true;
+            acontecimiento = Constante.CALENTAMIENTO;
+            jButtonEnfriamiento.setEnabled(false);
+            jButtonInvasion.setEnabled(false);
+        } else {
+            setActivarJButtonAcontecimiento();
+        }
+    }//GEN-LAST:event_jButtonCalentamientoActionPerformed
+
+    private void jButtonEnfriamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnfriamientoActionPerformed
+        // TODO add your handling code here:
+        if (!pulsado) {
+            pulsado = true;
+            acontecimiento = Constante.ENFRIAMIENTO;
+            jButtonCalentamiento.setEnabled(false);
+            jButtonInvasion.setEnabled(false);
+        } else {
+            setActivarJButtonAcontecimiento();
+
+        }
+    }//GEN-LAST:event_jButtonEnfriamientoActionPerformed
+
+    private void jButtonInvasionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInvasionActionPerformed
+        if (!pulsado) {
+            pulsado = true;
+            acontecimiento = Constante.INVASION;
+            jButtonCalentamiento.setEnabled(false);
+            jButtonEnfriamiento.setEnabled(false);
+        } else {
+            setActivarJButtonAcontecimiento();
+
+        }
+    }//GEN-LAST:event_jButtonInvasionActionPerformed
+
+    public void setActivarJButtonAcontecimiento() {
+        jButtonEnfriamiento.setEnabled(true);
+        jButtonInvasion.setEnabled(true);
+        jButtonCalentamiento.setEnabled(true);
+        acontecimiento = 0;
+        pulsado = false;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonAvanzar10Dias;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAvanzarUnDia;
+    private javax.swing.JButton jButtonCalentamiento;
+    private javax.swing.JButton jButtonEnfriamiento;
+    private javax.swing.JButton jButtonInvasion;
     private javax.swing.JButton jButtonReiniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
