@@ -11,7 +11,7 @@ import Modelo.Invacion;
 
 /**
  *
- * @author youne
+ * @author Younes
  */
 public class Inicio extends javax.swing.JFrame {
     Invacion invacion = new Invacion();
@@ -21,6 +21,9 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         jTextHumanos.setEnabled(false);
+        jTextCazaVamp.setEnabled(false);
+        jTextVampiros.setEnabled(false);
+        jTextZombis.setEnabled(false);
     }
 
     /**
@@ -341,10 +344,12 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        invacion.setPasaDia();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        invacion.setPasaDiezDia();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextHumanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextHumanosActionPerformed
@@ -391,6 +396,9 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         invacion.setGenerarMundo();
         jTextHumanos.setEnabled(true);
+        jTextCazaVamp.setEnabled(true);
+        jTextVampiros.setEnabled(true);
+        jTextZombis.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextCazaVampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCazaVampActionPerformed

@@ -88,6 +88,10 @@ public class Invacion {
     public void setPasaDia() {
         dia++;
     }
+    
+    public void setPasaDiezDia() {
+       dia = dia + 10;
+    }
 
     public void setTemperatura() {
 
