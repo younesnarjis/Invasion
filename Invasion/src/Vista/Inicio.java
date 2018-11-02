@@ -5,7 +5,6 @@
  */
 package Vista;
 
-
 import Modelo.Constante;
 import Modelo.Invasion;
 
@@ -32,9 +31,7 @@ public class Inicio extends javax.swing.JFrame {
         acontecimiento = 0;
     }
 
-
-    
-    public void setTodoTextNoEditable(){
+    public void setTodoTextNoEditable() {
 
         jTextCazaVampInicio.setEditable(false);
         jTextVampirosInicio.setEditable(false);
@@ -70,20 +67,15 @@ public class Inicio extends javax.swing.JFrame {
         jTextInfo.setText(s);
     }
 
-
     public void setInfoInicio(String h, String c, String v, String z) {
 
         jTextCazaVampInicio.setText(c);
         jTextVampirosInicio.setText(v);
         jTextZombisInicio.setText(z);
         jTextHumanoInicio.setText(h);
-
-
     }
 
-
-    
-    public void setInfoActual(String h, String c, String v, String z, String dia, String t){
+    public void setInfoActual(String h, String c, String v, String z, String dia, String t) {
 
         jTextCazaVamp.setText(c);
         jTextVampiros.setText(v);
@@ -91,7 +83,6 @@ public class Inicio extends javax.swing.JFrame {
         jTextHumanos.setText(h);
         jTextDia.setText(dia);
         jTextTem.setText(t);
-
     }
 
     /**
@@ -520,8 +511,6 @@ public class Inicio extends javax.swing.JFrame {
 
     }
 
-     
-
     private void ButtonAvanzar10DiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAvanzar10DiasActionPerformed
         // TODO add your handling code here:
         jTextInfo.setText("");
@@ -578,7 +567,6 @@ public class Inicio extends javax.swing.JFrame {
             jButtonInvasion.setEnabled(false);
         } else {
             setActivarJButtonAcontecimiento();
-
         }
     }//GEN-LAST:event_jButtonEnfriamientoActionPerformed
 
@@ -590,7 +578,6 @@ public class Inicio extends javax.swing.JFrame {
             jButtonEnfriamiento.setEnabled(false);
         } else {
             setActivarJButtonAcontecimiento();
-
         }
     }//GEN-LAST:event_jButtonInvasionActionPerformed
 

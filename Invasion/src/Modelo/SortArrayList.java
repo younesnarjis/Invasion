@@ -12,14 +12,17 @@ import java.util.Comparator;
  * @author YUYAN Wu
  * @author Younes Narjis
  */
-public class SortArrayList implements Comparator<Humano>{
+public class SortArrayList implements Comparator<Humano> {
+
     @Override
     public int compare(Humano t, Humano t1) {
-        if(t.getVelocidad() > t1.getVelocidad())
+        if (t.getVelocidad() > t1.getVelocidad()) {
             return -1;
-        if(t.getVelocidad() < t1.getVelocidad())
+        }
+        if (t.getVelocidad() < t1.getVelocidad()) {
             return 1;
-        
+        }
+
         return 0;
     }
 }
