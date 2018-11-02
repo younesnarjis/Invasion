@@ -7,7 +7,7 @@ package Modelo;
 
 /**
  *
- * @author youne
+ * @author Younes
  */
 public class Vampiro extends Seres{
     private int num_vamp_generados;
@@ -30,10 +30,4 @@ public class Vampiro extends Seres{
     public void setNumConvertirVampiros(){
          num_vamp_generados ++;
     }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

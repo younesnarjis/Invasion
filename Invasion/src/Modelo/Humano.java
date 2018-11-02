@@ -10,7 +10,6 @@ package Modelo;
  * @author YUYAN
  */
 public class Humano extends Seres {
-
     private int velocidad;
     private static int id_prox;
     private int probabilidad_muerte;
@@ -40,7 +39,6 @@ public class Humano extends Seres {
             Vampiro v = new Vampiro(this.getDiaNacimiento());
             return v;
         }
-
         return null;
     }
 
@@ -80,5 +78,4 @@ public class Humano extends Seres {
         int num = Constante.getNumeroAleatorio(1, 3);
         return num;
     }
-
 }
