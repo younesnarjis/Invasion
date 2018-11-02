@@ -334,7 +334,7 @@ public class Invasion {
 
         for (i = 0; i < zombies.size(); i++) {
             // no cuenta el dia de nacimiento 
-            System.out.println("Zombies " + zombies.get(i).getId() + " probabilidad: " + zombies.get(i).getProbabilidad());
+            //System.out.println("Zombies " + zombies.get(i).getId() + " probabilidad: " + zombies.get(i).getProbabilidad());
             if ((dia - zombies.get(i).getDiaNacimiento()) == 8) {
                 morir.add(zombies.get(i));
             } else {

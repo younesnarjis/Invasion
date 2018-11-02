@@ -1,4 +1,12 @@
 Falta arreglar
     -Eliminar todo toString de clase
     - Eliminar cosas inecesarias de la clase
-    - boton para cada acontecimiento 
+    - Comprobar el funcionamiento(utiza println para ver sus funcionamiento si esta correcta )
+    - poner en formato bien los codigod(alt+shif+f)
+    - mirar si puede separar mas codigos
+    - analizar los codigos para ver si se puede reutlizar , eliminar los duplicados
+
+Problemas no quedan claros: 
+    -   Invacion de zombies, una vez surgido, a partir de ese momento, todo va ser probabilidad 1/3 o 
+resto es lo mismo?
+    
