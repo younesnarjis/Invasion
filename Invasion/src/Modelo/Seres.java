@@ -54,7 +54,7 @@ public abstract class Seres {
         int num;
         num = random.nextInt(max - min +1)+min;
       
-         return num;
+        return num;
     }
     
 }

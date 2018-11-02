@@ -5,17 +5,22 @@
  */
 package Vista;
 
+
+import Modelo.Invacion;
+
+
 /**
  *
  * @author youne
  */
 public class Inicio extends javax.swing.JFrame {
-
+    Invacion invacion = new Invacion();
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
+        jTextHumanos.setEnabled(false);
     }
 
     /**
@@ -69,6 +74,11 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jButton2.setText("Reiniciar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Avanzar 10 dias");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +88,11 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jButton4.setText("Salir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Nº Humanos:");
 
@@ -87,7 +102,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel4.setText("Nº Zombis:");
 
-        jTextHumanos.setText("jTextHumanos");
+        jTextHumanos.setEditable(false);
         jTextHumanos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextHumanosActionPerformed(evt);
@@ -95,10 +110,15 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jTextCazaVamp.setText("jTextCazaVamp");
+        jTextCazaVamp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCazaVampActionPerformed(evt);
+            }
+        });
 
         jTextVampiros.setText("jTextVampiros");
 
-        jTextZombis.setText("jTextVampiros");
+        jTextZombis.setText("jTextZombies");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -110,20 +130,23 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextHumanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextHumanos))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextCazaVamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextVampiros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextZombis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextCazaVamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextVampiros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextZombis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,6 +255,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel12.setText("SIMULADOR");
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -325,8 +349,31 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jTextHumanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextHumanosActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jTextHumanosActionPerformed
 
+    private void NumHumanos(){
+        jTextHumanos.setText(invacion.getHumanos());
+        jTextHumanos.setText("Holaaa");
+    }
+    
+    private void NumHumanosCazavampiros(){
+        jTextCazaVamp.setText(invacion.getHumanosCazaVampiros());
+    }
+    
+    private void NumVampiros(){
+        jTextVampiros.setText(invacion.getVampiros());
+    }
+    
+    private void NumZombies(){
+        jTextZombis.setText(invacion.getZombies());
+    }
+    
+    private void jTextArea(){
+        jTextArea1.setText("Hola");
+    }
+    
     private void jTextHumanos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextHumanos1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextHumanos1ActionPerformed
@@ -334,6 +381,21 @@ public class Inicio extends javax.swing.JFrame {
     private void jComboTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTemperaturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboTemperaturaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        invacion.setGenerarMundo();
+        jTextHumanos.setEnabled(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextCazaVampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCazaVampActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCazaVampActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

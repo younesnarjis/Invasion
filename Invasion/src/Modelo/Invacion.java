@@ -38,7 +38,11 @@ public class Invacion {
             humanos.add(h);
         }
     }
-
+    
+    public String getHumanos(){
+        return Integer.toString(humanos.size());
+    }
+    
     public void setCrearHumanosCazaVampiro(int num) {
         int i;
         HumanoCazaVampiros h;
@@ -46,6 +50,10 @@ public class Invacion {
             h = new HumanoCazaVampiros(dia);
             caza_vampiros.add(h);
         }
+    }
+    
+    public String getHumanosCazaVampiros(){
+        return Integer.toString(caza_vampiros.size());
     }
 
     public void setCrearVampiros(int num) {
@@ -56,7 +64,10 @@ public class Invacion {
             vampiros.add(h);
         }
     }
-
+    
+    public String getVampiros(){
+        return Integer.toString(vampiros.size());
+    }
     public void setCrearZombies(int num) {
         int i;
         Zombie h;
@@ -64,6 +75,10 @@ public class Invacion {
             h = new Zombie(dia);
             zombies.add(h);
         }
+    }
+    
+    public String getZombies(){
+        return Integer.toString(zombies.size());
     }
 
     public int getDia() {
@@ -125,8 +140,7 @@ public class Invacion {
         setVidaHumano();
         setVidaHumanoCazaVampiro();
         setVidaVampiro();
-        setVidaZombie();
-        
+        setVidaZombie();    
     }
 
     public void setVidaHumano() {

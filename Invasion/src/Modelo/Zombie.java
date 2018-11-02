@@ -32,11 +32,7 @@ public class Zombie extends Seres{
     public void setNumHumanoZombie(){
         num_humano_zombie ++;
     }
-    
-    
-    
-    
-    
+
     @Override
     public String toString() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
