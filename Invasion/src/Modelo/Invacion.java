@@ -20,6 +20,7 @@ public class Invacion {
     private ArrayList<Vampiro> vampiros;
     private ArrayList<Zombie> zombies;
     private int dia;
+    private int[] estadistica;
     private float temperatura;
 
     public Invacion() {
@@ -27,8 +28,33 @@ public class Invacion {
         caza_vampiros = new ArrayList<>();
         vampiros = new ArrayList<>();
         zombies = new ArrayList<>();
+        estadistica = new int[10];
 
     }
+    
+    
+    public void setVaciarEstadistica(){
+        for(int i = 0; i < estadistica.length; i++)
+            estadistica[i] = 0;
+    }
+    
+    
+    public String toString(){
+        String s;
+        s = "-------------\nDia: " + dia + "\nTemperatura: " + temperatura +"\n-------------\n";
+        s += estadistica[0] + "\thumanos han nacido\n" + estadistica[1] + "\thumanos ha muerto por muerte natural o accidente\n"+
+                estadistica[2] + "\thumanos de caza vampiros han nacido\n" + estadistica[3] + "\thumanos de caza vampiros han muerto" +
+                " por muerte natura o accidente\n" + estadistica[4] + "\thumanos han sido mordeado por vampiros\n" + estadistica[5]+
+                "\thumanos han convertido a vampiros\n" + (estadistica[4] - estadistica[5]) + "\thumanos han muertos por que han sido" +
+                "mordeado por vampiros\n" + (estadistica[6] + estadistica[7]) + "\tvampiros han muerto\n" + estadistica[7] + 
+                 "\tvampiros han muerto por humano de caza vampiros\n" + estadistica[6] + "\tvampiros han muerto por inanición\n"+
+                estadistica[8] + "\tzombies han muertos por hambre\n" + estadistica[9] + "\thumanos o humanos de caza vampiros han "+
+                "convertido zombies.";
+        
+        return s;
+    }
+    
+    
 
     public void setCrearHumanos(int num) {
         int i;
@@ -39,7 +65,7 @@ public class Invacion {
         }
     }
     
-    public String getHumanos(){
+    public String getNumeroHumanos(){
         return Integer.toString(humanos.size());
     }
     
@@ -52,7 +78,7 @@ public class Invacion {
         }
     }
     
-    public String getHumanosCazaVampiros(){
+    public String getNumeroHumanosCazaVampiros(){
         return Integer.toString(caza_vampiros.size());
     }
 
@@ -65,7 +91,7 @@ public class Invacion {
         }
     }
     
-    public String getVampiros(){
+    public String getNumeroVampiros(){
         return Integer.toString(vampiros.size());
     }
     public void setCrearZombies(int num) {
@@ -77,21 +103,19 @@ public class Invacion {
         }
     }
     
-    public String getZombies(){
+    public String getNumeroZombies(){
         return Integer.toString(zombies.size());
     }
 
-    public int getDia() {
-        return dia;
+    public String getDia() {
+        return Integer.toString(dia);
     }
 
-    public void setPasaDia() {
+    public void setPasarDia() {
         dia++;
     }
     
-    public void setPasaDiezDia() {
-       dia = dia + 10;
-    }
+    
 
     public void setTemperatura() {
 
@@ -119,8 +143,8 @@ public class Invacion {
         }
     }
 
-    public float getTemperatura() {
-        return temperatura;
+    public String getTemperatura() {
+        return temperatura+"";
     }
 
     public void setGenerarMundo() {
@@ -141,6 +165,9 @@ public class Invacion {
     }
 
     public void setTranscurrirDia() {
+        setPasarDia();
+        setTemperatura();
+        setVaciarEstadistica();
         setVidaHumano();
         setVidaHumanoCazaVampiro();
         setVidaVampiro();
@@ -170,7 +197,11 @@ public class Invacion {
                 }
             }
         }
-
+        //nacer de humano
+        estadistica[0] = nacer.size();
+        //morir de humano
+        estadistica[1] = morir.size();
+        
         for (i = 0; i < morir.size(); i++) {
             humanos.remove(morir.get(i));
         }
@@ -215,12 +246,16 @@ public class Invacion {
             }
         }
 
+        estadistica[2] = nacer.size();
+        estadistica[3] = morir.size();
+        estadistica[7] = vam.size();
+        
         for (i = 0; i < morir.size(); i++) {
-            humanos.remove(morir.get(i));
+            caza_vampiros.remove(morir.get(i));
         }
 
         for (j = 0; j < nacer.size(); j++) {
-            humanos.add(nacer.get(j));
+            caza_vampiros.add(nacer.get(j));
         }
 
         for (i = 0; i < vam.size(); i++) {
@@ -238,12 +273,14 @@ public class Invacion {
         ArrayList<Vampiro> nacer = new ArrayList<>();
         ArrayList<Vampiro> morir = new ArrayList<>();
         Vampiro v;
+        int h = 0;
         for (i = 0; i < vampiros.size(); i++) {
             if (vampiros.get(i).getMataHumano()) {
                 if (humanos.isEmpty()) {
                     morir.add(vampiros.get(i));
                 } else {
                     num = getNumeroAleatorio(0, humanos.size() - 1);
+                    h++;
                     v = humanos.get(num).getConvierteVampiro();
                     humanos.remove(num);
                     if (v != null) {
@@ -254,6 +291,10 @@ public class Invacion {
             }
         }
 
+        
+        estadistica[4] = h;
+        estadistica[5] = nacer.size();
+        estadistica[6] = morir.size();
         for (i = 0; i < morir.size(); i++) {
             vampiros.remove(morir.get(i));
         }
@@ -287,7 +328,7 @@ public class Invacion {
 
         for (i = 0; i < zombies.size(); i++) {
             // no cuenta el dia de nacimiento 
-            if ((dia - zombies.get(i).getDiaNacimiento()) == 1) {
+            if ((dia - zombies.get(i).getDiaNacimiento()) == 8) {
                 morir.add(zombies.get(i));
             } else {
                 if (zombies.get(i).tocaHumano() && (!humanos.isEmpty() || !caza_vampiros.isEmpty())) {
@@ -297,6 +338,11 @@ public class Invacion {
             }
 
         }
+        
+        estadistica[8] = morir.size();
+        estadistica[9] = nacer.size();
+        
+        
         for (i = 0; i < morir.size(); i++) {
             zombies.remove(morir.get(i));
         }
@@ -315,15 +361,15 @@ public class Invacion {
         boolean flag_h = false;
         if ((!humanos.isEmpty() && !caza_vampiros.isEmpty())) {
             if (humanos.get(0).getVelocidad() > caza_vampiros.get(0).getVelocidad()) {
-                zom = caza_vampiros.get(0).getConvierteZombie();
+                zom = caza_vampiros.get(0).getConvierteZombie(dia);
             } else {
-                zom = humanos.get(0).getConvierteZombie();
+                zom = humanos.get(0).getConvierteZombie(dia);
                 flag_h = true;
             }
         } else if (humanos.isEmpty()) {
-            zom = caza_vampiros.get(0).getConvierteZombie();
+            zom = caza_vampiros.get(0).getConvierteZombie(dia);
         } else {
-            zom = humanos.get(0).getConvierteZombie();
+            zom = humanos.get(0).getConvierteZombie(dia);
             flag_h = true;
         }
 

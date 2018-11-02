@@ -16,7 +16,6 @@ public class Zombie extends Seres{
     
     public Zombie(int dia){
         super.setNacer(dia);
-        tiempo_vida = 8;
         num_humano_zombie = 0;
         super.setId(id_prox + 1);
     }
@@ -25,9 +24,7 @@ public class Zombie extends Seres{
         return super.getTocadoProbabilidad(10, 1);
     }
     
-    public void setMenosTiempoVida(){
-        tiempo_vida ++;
-    }
+
     
     public void setNumHumanoZombie(){
         num_humano_zombie ++;

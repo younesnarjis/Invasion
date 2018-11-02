@@ -47,7 +47,7 @@ public abstract class Seres {
         this.id = id;
     }
     
-    public abstract String toString();
+
     
     public int getNumeroAleatorio(int min, int max){
         Random random = new Random();

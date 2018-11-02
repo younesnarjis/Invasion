@@ -41,13 +41,16 @@ public class Humano extends Seres {
         return null;
     }
 
-    public Zombie getConvierteZombie() {
-            Zombie v = new Zombie(this.getDiaNacimiento());
-            return v;
+    public Zombie getConvierteZombie(int dia) {
+        Zombie v = new Zombie(dia);
+        return v;
     }
 
     public boolean getSobrevivir() {
         if (super.getTocadoProbabilidad(300, 1)) {
+            super.setMorir();
+            return false;
+        } else if (super.getTocadoProbabilidad(500, 1)) {
             super.setMorir();
             return false;
         } else {
@@ -73,11 +76,6 @@ public class Humano extends Seres {
     public int getHijo() {
         int num = super.getNumeroAleatorio(1, 3);
         return num;
-    }
-
-    @Override
-    public String toString() {
-        return null;
     }
 
 }
