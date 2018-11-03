@@ -1,8 +1,6 @@
 Falta arreglar
-    -Eliminar todo toString de clase
     - Eliminar cosas inecesarias de la clase
     - Comprobar el funcionamiento(utiza println para ver sus funcionamiento si esta correcta )
-    - poner en formato bien los codigod(alt+shif+f)
     - mirar si puede separar mas codigos
     - analizar los codigos para ver si se puede reutlizar , eliminar los duplicados
 
