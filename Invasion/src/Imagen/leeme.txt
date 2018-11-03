@@ -7,6 +7,6 @@ Falta arreglar
     - analizar los codigos para ver si se puede reutlizar , eliminar los duplicados
 
 Problemas no quedan claros: 
-    -   Invacion de zombies, una vez surgido, a partir de ese momento, todo va ser probabilidad 1/3 o 
+    -  Invacion de zombies, una vez surgido, a partir de ese momento, todo va ser probabilidad 1/3 o 
 resto es lo mismo?
     

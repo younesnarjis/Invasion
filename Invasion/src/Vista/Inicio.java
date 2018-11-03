@@ -33,9 +33,6 @@ public class Inicio extends javax.swing.JFrame {
     }
 
 
-    
-    public void setTodoTextNoEditable(){
-
         jTextCazaVampInicio.setEditable(false);
         jTextVampirosInicio.setEditable(false);
         jTextZombisInicio.setEditable(false);
@@ -81,9 +78,6 @@ public class Inicio extends javax.swing.JFrame {
 
     }
 
-
-    
-    public void setInfoActual(String h, String c, String v, String z, String dia, String t){
 
         jTextCazaVamp.setText(c);
         jTextVampiros.setText(v);
@@ -520,8 +514,6 @@ public class Inicio extends javax.swing.JFrame {
 
     }
 
-     
-
     private void ButtonAvanzar10DiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAvanzar10DiasActionPerformed
         // TODO add your handling code here:
         jTextInfo.setText("");
@@ -578,7 +570,6 @@ public class Inicio extends javax.swing.JFrame {
             jButtonInvasion.setEnabled(false);
         } else {
             setActivarJButtonAcontecimiento();
-
         }
     }//GEN-LAST:event_jButtonEnfriamientoActionPerformed
 
@@ -590,7 +581,6 @@ public class Inicio extends javax.swing.JFrame {
             jButtonEnfriamiento.setEnabled(false);
         } else {
             setActivarJButtonAcontecimiento();
-
         }
     }//GEN-LAST:event_jButtonInvasionActionPerformed
 
