@@ -9,11 +9,12 @@ package Modelo;
  *
  * @author YUYAN
  */
-public class Zombie extends Seres{
 public class Zombie extends Seres {
 
     private static int id_prox;
     private int num_humano_zombie;
+    private int probabilidad_tocahumano;
+
     public Zombie(int dia) {
         super.setNacer(dia);
         num_humano_zombie = 0;

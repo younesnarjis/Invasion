@@ -5,7 +5,6 @@
  */
 package Vista;
 
-
 import Modelo.Constante;
 import Modelo.Invasion;
 
@@ -32,6 +31,7 @@ public class Inicio extends javax.swing.JFrame {
         acontecimiento = 0;
     }
 
+    public void setTodoTextNoEditable() {
 
         jTextCazaVampInicio.setEditable(false);
         jTextVampirosInicio.setEditable(false);
@@ -67,17 +67,15 @@ public class Inicio extends javax.swing.JFrame {
         jTextInfo.setText(s);
     }
 
-
     public void setInfoInicio(String h, String c, String v, String z) {
 
         jTextCazaVampInicio.setText(c);
         jTextVampirosInicio.setText(v);
         jTextZombisInicio.setText(z);
         jTextHumanoInicio.setText(h);
-
-
     }
 
+    public void setInfoActual(String h, String c, String v, String z, String dia, String t) {
 
         jTextCazaVamp.setText(c);
         jTextVampiros.setText(v);
@@ -85,7 +83,6 @@ public class Inicio extends javax.swing.JFrame {
         jTextHumanos.setText(h);
         jTextDia.setText(dia);
         jTextTem.setText(t);
-
     }
 
     /**
