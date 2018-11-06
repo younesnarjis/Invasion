@@ -70,9 +70,12 @@ public class JFrameEntrada extends javax.swing.JFrame implements Serializable {
        
            
        Invasion inv = leerDatosBin();
-       if(inv == null)
+       if(inv == null){
            inv = new Invasion();
+           inv.setGenerarMundo();
+       }
        Inicio ventana_principal = new Inicio(inv);
+      
        ventana_principal.setIniciar();
        ventana_principal.setVisible(true);
     }//GEN-LAST:event_jLabelPortadaMouseClicked
@@ -85,6 +88,7 @@ public class JFrameEntrada extends javax.swing.JFrame implements Serializable {
             ObjectInputStream is = new ObjectInputStream(in);
             v = (Invasion) is.readObject();
             is.close();
+            return v;
         }catch(IOException | ClassNotFoundException e){
             System.out.println("Exceprion " + e);
         }

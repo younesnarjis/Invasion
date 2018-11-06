@@ -25,7 +25,7 @@ public class Humano extends Seres implements Serializable{
         super.setId(id_prox + 1);
         id_prox += 1;
         probabilidad_muerte = 300;
-        probabilidad_muerte_otro = 50;
+        probabilidad_muerte_otro = 500;
         probabilidad_reproduccion = 30;
     }
 

@@ -27,6 +27,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
 
     /**
      * Creates new form Inicio
+     * @param inv
      */
     public Inicio(Invasion inv) {
         initComponents();
@@ -52,7 +53,6 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
     public void setIniciar() {
         setTodoTextNoEditable();
         String h, c, v, z, d, t, s;
-        invacion.setGenerarMundo();
         h = invacion.getNumeroHumanos();
         c = invacion.getNumeroHumanosCazaVampiros();
         z = invacion.getNumeroZombies();
