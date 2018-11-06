@@ -10,10 +10,10 @@ package Modelo;
  * @author YUYAN
  */
 public class Zombie extends Seres{
+    
     private static int id_prox;
     private int num_humano_zombie;
     private  int probabilidad_tocahumano;
-    
     
     public Zombie(int dia){
         super.setNacer(dia);
@@ -37,11 +37,4 @@ public class Zombie extends Seres{
     public void setNumHumanoZombie(){
         num_humano_zombie ++;
     }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

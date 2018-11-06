@@ -22,6 +22,7 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
+    
     public Inicio() {
         initComponents();
         invacion = new Invasion();
@@ -69,7 +70,6 @@ public class Inicio extends javax.swing.JFrame {
         jTextVampirosInicio.setText(v);
         jTextZombisInicio.setText(z);
         jTextHumanoInicio.setText(h);
-
     }
 
     public void setInfoActual(String h, String c, String v, String z, String dia, String t) {
@@ -79,9 +79,7 @@ public class Inicio extends javax.swing.JFrame {
         jTextHumanos.setText(h);
         jTextDia.setText(dia);
         jTextTem.setText(t);
-
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -461,11 +459,11 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButtonAvanzarUnDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAvanzarUnDiaActionPerformed
         // TODO add your handling code here:
+        
         jTextInfo.setText("");
-
         setPasaUnDia();
         JOptionPane.showMessageDialog(this, "Un dia ha terminado");
-
+        
     }//GEN-LAST:event_jButtonAvanzarUnDiaActionPerformed
 
     public void setPasaUnDia() {
@@ -505,17 +503,16 @@ public class Inicio extends javax.swing.JFrame {
         setInfoActual(h, c, v, z, d, t);
         jTextInfo.append(invacion.toString());
         setActivarJButtonAcontecimiento();
-
     }
-
 
     private void ButtonAvanzar10DiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAvanzar10DiasActionPerformed
         // TODO add your handling code here:
         jTextInfo.setText("");
+        
         for (int i = 0; i < 10; i++) {
             setPasaUnDia();
         }
-
+        
         JOptionPane.showMessageDialog(this, "10 dias han terminado");
     }//GEN-LAST:event_ButtonAvanzar10DiasActionPerformed
 
@@ -545,7 +542,6 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButtonCalentamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalentamientoActionPerformed
         // TODO add your handling code here:
-
         if (!pulsado) {
             pulsado = true;
             acontecimiento = Constante.CALENTAMIENTO;
@@ -565,7 +561,6 @@ public class Inicio extends javax.swing.JFrame {
             jButtonInvasion.setEnabled(false);
         } else {
             setActivarJButtonAcontecimiento();
-
         }
     }//GEN-LAST:event_jButtonEnfriamientoActionPerformed
 
@@ -577,7 +572,6 @@ public class Inicio extends javax.swing.JFrame {
             jButtonEnfriamiento.setEnabled(false);
         } else {
             setActivarJButtonAcontecimiento();
-
         }
     }//GEN-LAST:event_jButtonInvasionActionPerformed
 

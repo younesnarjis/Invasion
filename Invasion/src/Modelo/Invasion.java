@@ -7,14 +7,13 @@ package Modelo;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  *
  * @author YUYAN
  */
 public class Invasion {
-
+    
     private ArrayList<Humano> humanos;
     private ArrayList<HumanoCazaVampiros> caza_vampiros;
     private ArrayList<Vampiro> vampiros;
@@ -29,15 +28,12 @@ public class Invasion {
         vampiros = new ArrayList<>();
         zombies = new ArrayList<>();
         estadistica = new int[10];
-
     }
-    
     
     public void setVaciarEstadistica(){
         for(int i = 0; i < estadistica.length; i++)
             estadistica[i] = 0;
     }
-    
     
     public String toString(){
         String s;
@@ -63,6 +59,7 @@ public class Invasion {
     public void setCrearHumanos(int num) {
         int i;
         Humano h;
+        
         for (i = 0; i < num; i++) {
             h = new Humano(dia);
             humanos.add(h);
@@ -76,6 +73,7 @@ public class Invasion {
     public void setCrearHumanosCazaVampiro(int num) {
         int i;
         HumanoCazaVampiros h;
+        
         for (i = 0; i < num; i++) {
             h = new HumanoCazaVampiros(dia);
             caza_vampiros.add(h);
@@ -89,6 +87,7 @@ public class Invasion {
     public void setCrearVampiros(int num) {
         int i;
         Vampiro h;
+        
         for (i = 0; i < num; i++) {
             h = new Vampiro(dia);
             vampiros.add(h);
@@ -98,9 +97,11 @@ public class Invasion {
     public String getNumeroVampiros(){
         return Integer.toString(vampiros.size());
     }
+    
     public void setCrearZombies(int num) {
         int i;
         Zombie h;
+        
         for (i = 0; i < num; i++) {
             h = new Zombie(dia);
             zombies.add(h);
@@ -119,21 +120,20 @@ public class Invasion {
         dia++;
     }
     
-    
     public void setAumentaLaTemperatura(float t){
         temperatura += t;
     }
     
     public void setTemperatura() {
-
         int num = Constante.getNumeroAleatorio(1, 100);
+        
         if (temperatura >= 22) {
             if (num <= 55) {
                 temperatura -= 0.5;
             } else {
                 temperatura += 0.5;
             }
-
+            
         } else if (temperatura <= 18) {
             if (num <= 55) {
                 temperatura += 0.5;
@@ -167,12 +167,11 @@ public class Invasion {
         setCrearHumanosCazaVampiro(num_hcv);
         setCrearVampiros(num_v);
         setCrearZombies(num_z);
-                dia = 1;
+        dia = 1;
         temperatura = 20;
     }
 
     public void setTranscurrirDia() {
-
         setVaciarEstadistica();
         setVidaHumano();
         setVidaHumanoCazaVampiro();
@@ -187,6 +186,7 @@ public class Invasion {
         int v;
         int hijos;
         int i, j;
+        
         for (i = 0; i < humanos.size(); i++) {
             h = humanos.get(i);
             if (!h.getSobrevivir()) {
@@ -220,15 +220,15 @@ public class Invasion {
         nacer.clear();
     }
 
-    public void setVidaHumanoCazaVampiro() {
+    public void setVidaHumanoCazaVampiro() {   
         ArrayList<HumanoCazaVampiros> morir = new ArrayList<>();
         ArrayList<HumanoCazaVampiros> nacer = new ArrayList<>();
         ArrayList<Vampiro> vam = new ArrayList<>();
         HumanoCazaVampiros h, hijo;
-
         int v;
         int hijos;
         int i, j, num;
+        
         for (i = 0; i < caza_vampiros.size(); i++) {
             h = caza_vampiros.get(i);
             if (!h.getSobrevivir()) {
@@ -271,7 +271,6 @@ public class Invasion {
         morir.clear();
         nacer.clear();
         vam.clear();
-
     }
 
     public void setVidaVampiro() {
@@ -280,6 +279,7 @@ public class Invasion {
         ArrayList<Vampiro> morir = new ArrayList<>();
         Vampiro v;
         int h = 0;
+        
         for (i = 0; i < vampiros.size(); i++) {
             if (vampiros.get(i).getMataHumano()) {
                 if (humanos.isEmpty()) {
@@ -297,10 +297,10 @@ public class Invasion {
             }
         }
 
-        
         estadistica[4] = h;
         estadistica[5] = nacer.size();
         estadistica[6] = morir.size();
+        
         for (i = 0; i < morir.size(); i++) {
             vampiros.remove(morir.get(i));
         }
@@ -313,15 +313,15 @@ public class Invasion {
         nacer.clear();
     }
 
-    public void setVidaZombie() {
+    public void setVidaZombie() {   
         int i;
-
         ArrayList<Zombie> nacer = new ArrayList<>();
         ArrayList<Zombie> morir = new ArrayList<>();
         ArrayList<Humano> h = new ArrayList<>();
         ArrayList<Humano> hc = new ArrayList<>();
         SortArrayList s = new SortArrayList();
         Zombie zom;
+        
         if (!humanos.isEmpty()) {
             h.addAll(humanos);
             Collections.sort(h, s);
@@ -343,12 +343,10 @@ public class Invasion {
                     nacer.add(zom);
                 }
             }
-
         }
         
         estadistica[8] = morir.size();
         estadistica[9] = nacer.size();
-        
         
         for (i = 0; i < morir.size(); i++) {
             zombies.remove(morir.get(i));
@@ -360,12 +358,12 @@ public class Invasion {
 
         nacer.clear();
         morir.clear();
-
     }
 
     public Zombie getZombieHumano() {
         Zombie zom;
         boolean flag_h = false;
+        
         if ((!humanos.isEmpty() && !caza_vampiros.isEmpty())) {
             if (humanos.get(0).getVelocidad() > caza_vampiros.get(0).getVelocidad()) {
                 zom = caza_vampiros.get(0).getConvierteZombie(dia);
@@ -387,9 +385,5 @@ public class Invasion {
         }
 
         return zom;
-
     }
-
-  
-
 }

@@ -7,9 +7,10 @@ package Modelo;
 
 /**
  *
- * @author youne
+ * @author younes
  */
 public class Vampiro extends Seres{
+    
     private int num_vamp_generados;
     private static int id_prox;
  
@@ -19,10 +20,7 @@ public class Vampiro extends Seres{
         id_prox += 1;
         this. num_vamp_generados = 0;
     }
-    
-    
-    
-    
+
     public boolean getMataHumano(){
         return Constante.getTocadoProbabilidad(2, 1);
     }
@@ -30,10 +28,4 @@ public class Vampiro extends Seres{
     public void setNumConvertirVampiros(){
          num_vamp_generados ++;
     }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
