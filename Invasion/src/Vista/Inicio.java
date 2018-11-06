@@ -7,6 +7,13 @@ package Vista;
 
 import Modelo.Constante;
 import Modelo.Invasion;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,10 +29,9 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
-    
-    public Inicio() {
+    public Inicio(Invasion inv) {
         initComponents();
-        invacion = new Invasion();
+        invacion = inv;
         pulsado = false;
         acontecimiento = 0;
     }
@@ -80,6 +86,7 @@ public class Inicio extends javax.swing.JFrame {
         jTextDia.setText(dia);
         jTextTem.setText(t);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -459,11 +466,11 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButtonAvanzarUnDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAvanzarUnDiaActionPerformed
         // TODO add your handling code here:
-        
+
         jTextInfo.setText("");
         setPasaUnDia();
         JOptionPane.showMessageDialog(this, "Un dia ha terminado");
-        
+
     }//GEN-LAST:event_jButtonAvanzarUnDiaActionPerformed
 
     public void setPasaUnDia() {
@@ -508,11 +515,11 @@ public class Inicio extends javax.swing.JFrame {
     private void ButtonAvanzar10DiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAvanzar10DiasActionPerformed
         // TODO add your handling code here:
         jTextInfo.setText("");
-        
+
         for (int i = 0; i < 10; i++) {
             setPasaUnDia();
         }
-        
+
         JOptionPane.showMessageDialog(this, "10 dias han terminado");
     }//GEN-LAST:event_ButtonAvanzar10DiasActionPerformed
 
@@ -520,16 +527,28 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "", JOptionPane.YES_NO_OPTION);
-        if(resp == 0)
-           System.exit(0);
-        
-        
+        if (resp == 0) {
+
+            FileOutputStream file;
+            try {
+                file = new FileOutputStream(new File(Constante.PATH));
+                ObjectOutputStream out = new ObjectOutputStream(file);
+                out.writeObject(invacion);
+                out.close();
+            } catch (IOException ex) {
+                System.out.println("Excepcion : " + ex);
+            }
+
+            System.exit(0);
+        }
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReiniciarActionPerformed
         // TODO add your handling code here:
         int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "", JOptionPane.YES_NO_OPTION);
-        if(resp == 0){
+        if (resp == 0) {
             invacion.setGenerarMundo();
             setIniciar();
         }

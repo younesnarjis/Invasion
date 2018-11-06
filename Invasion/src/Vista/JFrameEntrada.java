@@ -5,6 +5,13 @@
  */
 package Vista;
 
+import Modelo.Constante;
+import Modelo.Invasion;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import org.omg.CORBA.portable.InputStream;
+
 /**
  *
  * @author YUYAN
@@ -59,11 +66,29 @@ public class JFrameEntrada extends javax.swing.JFrame {
 
     private void jLabelPortadaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPortadaMouseClicked
        this.setVisible(false);
-       Inicio ventana_principal = new Inicio();
+       
+           
+       Invasion inv = leerDatosBin();
+       if(inv == null)
+           inv = new Invasion();
+       Inicio ventana_principal = new Inicio(inv);
        ventana_principal.setIniciar();
        ventana_principal.setVisible(true);
     }//GEN-LAST:event_jLabelPortadaMouseClicked
 
+    
+    private Invasion leerDatosBin(){
+        Invasion v;
+        try{
+            FileInputStream in = new FileInputStream(Constante.PATH);
+            ObjectInputStream is = new ObjectInputStream(in);
+            v = (Invasion) is.readObject();
+            is.close();
+        }catch(IOException | ClassNotFoundException e){
+            System.out.println("Exceprion " + e);
+        }
+        return null;
+    }
     /**
      * @param args the command line arguments
      */

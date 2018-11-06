@@ -5,6 +5,10 @@
  */
 package Modelo;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -334,7 +338,6 @@ public class Invasion {
 
         for (i = 0; i < zombies.size(); i++) {
             // no cuenta el dia de nacimiento 
-            System.out.println("Zombies " + zombies.get(i).getId() + " probabilidad: " + zombies.get(i).getProbabilidadTocaHumano());
             if ((dia - zombies.get(i).getDiaNacimiento()) == 8) {
                 morir.add(zombies.get(i));
             } else {
@@ -387,4 +390,7 @@ public class Invasion {
 
         return zom;
     }
+    
+
+    
 }
