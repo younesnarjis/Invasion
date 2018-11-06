@@ -522,13 +522,20 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "", JOptionPane.YES_NO_OPTION);
+        if(resp == 0)
+           System.exit(0);
+        
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReiniciarActionPerformed
         // TODO add your handling code here:
-        invacion.setGenerarMundo();
-        setIniciar();
+        int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "", JOptionPane.YES_NO_OPTION);
+        if(resp == 0){
+            invacion.setGenerarMundo();
+            setIniciar();
+        }
     }//GEN-LAST:event_jButtonReiniciarActionPerformed
 
     private void jTextCazaVampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCazaVampActionPerformed
