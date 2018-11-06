@@ -31,9 +31,10 @@ public class Zombie extends Seres{
         probabilidad_tocahumano = p;
     }
 
-    public  int getProbabilidad(){
+    public  int getProbabilidadTocaHumano(){
         return probabilidad_tocahumano;
     }
+    
     public void setNumHumanoZombie(){
         num_humano_zombie ++;
     }

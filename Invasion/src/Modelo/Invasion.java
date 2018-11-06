@@ -334,12 +334,13 @@ public class Invasion {
 
         for (i = 0; i < zombies.size(); i++) {
             // no cuenta el dia de nacimiento 
-            System.out.println("Zombies " + zombies.get(i).getId() + " probabilidad: " + zombies.get(i).getProbabilidad());
+            System.out.println("Zombies " + zombies.get(i).getId() + " probabilidad: " + zombies.get(i).getProbabilidadTocaHumano());
             if ((dia - zombies.get(i).getDiaNacimiento()) == 8) {
                 morir.add(zombies.get(i));
             } else {
                 if (zombies.get(i).tocaHumano() && (!humanos.isEmpty() || !caza_vampiros.isEmpty())) {
                     zom = getZombieHumano();
+                    zom.setProbabilidadTocaHumano(zombies.get(i).getProbabilidadTocaHumano());
                     nacer.add(zom);
                 }
             }
