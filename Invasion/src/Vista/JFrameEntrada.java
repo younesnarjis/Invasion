@@ -5,11 +5,13 @@
  */
 package Vista;
 
+import java.io.Serializable;
+
 /**
  *
  * @author YUYAN
  */
-public class JFrameEntrada extends javax.swing.JFrame {
+public class JFrameEntrada extends javax.swing.JFrame implements Serializable {
 
     /**
      * Creates new form JFrameEntrada

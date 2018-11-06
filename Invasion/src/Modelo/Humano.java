@@ -5,11 +5,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author YUYAN
  */
-public class Humano extends Seres {
+public class Humano extends Seres implements Serializable{
 
     private int velocidad;
     private static int id_prox;

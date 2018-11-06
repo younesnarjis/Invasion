@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -12,7 +13,7 @@ import java.util.Collections;
  *
  * @author YUYAN
  */
-public class Invasion {
+public class Invasion implements Serializable{
     
     private ArrayList<Humano> humanos;
     private ArrayList<HumanoCazaVampiros> caza_vampiros;

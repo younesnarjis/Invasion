@@ -5,11 +5,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author YUYAN
  */
-public class HumanoCazaVampiros extends Humano{
+public class HumanoCazaVampiros extends Humano implements Serializable{
     
     private int probabilidad_caza;
     private int num_vampiros; 

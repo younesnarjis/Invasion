@@ -5,11 +5,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author YUYAN
  */
-public abstract class Seres {
+public abstract class Seres implements Serializable{
     
     private int id;
     private int dia_nacimiento;

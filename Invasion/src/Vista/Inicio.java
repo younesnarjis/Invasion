@@ -7,13 +7,14 @@ package Vista;
 
 import Modelo.Constante;
 import Modelo.Invasion;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Younes
  */
-public class Inicio extends javax.swing.JFrame {
+public class Inicio extends javax.swing.JFrame implements Serializable{
 
     Invasion invacion;
     int acontecimiento;

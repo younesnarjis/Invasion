@@ -5,11 +5,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author younes
  */
-public class Vampiro extends Seres{
+public class Vampiro extends Seres implements Serializable{
     
     private int num_vamp_generados;
     private static int id_prox;
