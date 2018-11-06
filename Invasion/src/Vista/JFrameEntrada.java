@@ -16,7 +16,7 @@ public class JFrameEntrada extends javax.swing.JFrame {
      */
     public JFrameEntrada() {
         initComponents();
-
+       
     }
 
     /**
@@ -58,10 +58,10 @@ public class JFrameEntrada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelPortadaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPortadaMouseClicked
-        this.setVisible(false);
-        Inicio ventana_principal = new Inicio();
-        ventana_principal.setIniciar();
-        ventana_principal.setVisible(true);
+       this.setVisible(false);
+       Inicio ventana_principal = new Inicio();
+       ventana_principal.setIniciar();
+       ventana_principal.setVisible(true);
     }//GEN-LAST:event_jLabelPortadaMouseClicked
 
     /**

@@ -40,6 +40,7 @@ public class Humano extends Seres {
             Vampiro v = new Vampiro(this.getDiaNacimiento());
             return v;
         }
+
         return null;
     }
 
@@ -50,8 +51,10 @@ public class Humano extends Seres {
 
     public boolean getSobrevivir() {
         if (Constante.getTocadoProbabilidad(probabilidad_muerte_otro, 1)) {
+            super.setMorir();
             return false;
         } else if (Constante.getTocadoProbabilidad(probabilidad_muerte, 1)) {
+            super.setMorir();
             return false;
         } else {
             return true;
@@ -77,4 +80,5 @@ public class Humano extends Seres {
         int num = Constante.getNumeroAleatorio(1, 3);
         return num;
     }
+
 }
