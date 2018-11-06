@@ -1,4 +1,3 @@
-Falta arreglar
-    -Eliminar todo toString de clase
-    - Eliminar cosas inecesarias de la clase
-    - boton para cada acontecimiento 
+Falta arreglar 
+    -Ajustar el numero de zombies muertos, Cuando mueren todos los humanos tiene que pasar 8 dias que mueran todos los
+    zombies
