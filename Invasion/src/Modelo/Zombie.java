@@ -5,11 +5,11 @@
  */
 package Modelo;
 
+
 /**
  *
  * @author YUYAN
  */
-public class Zombie extends Seres{
     
     private static int id_prox;
     private int num_humano_zombie;

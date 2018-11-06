@@ -7,6 +7,7 @@ package Vista;
 
 import Modelo.Constante;
 import Modelo.Invasion;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,13 +15,14 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+>>>>>>> a51eea26cfe8ef7652ee009fcd965bb6002dfdd9
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Younes
  */
-public class Inicio extends javax.swing.JFrame {
 
     Invasion invacion;
     int acontecimiento;

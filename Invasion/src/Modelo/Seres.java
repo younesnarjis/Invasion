@@ -5,11 +5,11 @@
  */
 package Modelo;
 
+
 /**
  *
  * @author YUYAN
  */
-public abstract class Seres {
     
     private int id;
     private int dia_nacimiento;

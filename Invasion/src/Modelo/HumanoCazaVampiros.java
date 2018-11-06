@@ -5,11 +5,11 @@
  */
 package Modelo;
 
+
 /**
  *
  * @author YUYAN
  */
-public class HumanoCazaVampiros extends Humano{
     
     private int probabilidad_caza;
     private int num_vampiros; 

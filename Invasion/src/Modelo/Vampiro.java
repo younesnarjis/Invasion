@@ -5,11 +5,11 @@
  */
 package Modelo;
 
+
 /**
  *
  * @author younes
  */
-public class Vampiro extends Seres{
     
     private int num_vamp_generados;
     private static int id_prox;

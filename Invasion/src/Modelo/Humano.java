@@ -5,11 +5,11 @@
  */
 package Modelo;
 
+
 /**
  *
  * @author YUYAN
  */
-public class Humano extends Seres {
 
     private int velocidad;
     private static int id_prox;
