@@ -5,11 +5,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 
 /**
  *
  * @author YUYAN
  */
+public class Zombie extends Seres implements Serializable{
     
     private static int id_prox;
     private int num_humano_zombie;
