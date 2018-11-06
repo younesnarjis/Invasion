@@ -5,20 +5,19 @@
  */
 package Vista;
 
-<<<<<<< HEAD
+
 import Modelo.Constante;
 import Modelo.Invasion;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import org.omg.CORBA.portable.InputStream;
-=======
->>>>>>> a51eea26cfe8ef7652ee009fcd965bb6002dfdd9
+import java.io.Serializable;
 
 /**
  *
  * @author YUYAN
  */
+public class JFrameEntrada extends javax.swing.JFrame implements Serializable {
 
     /**
      * Creates new form JFrameEntrada

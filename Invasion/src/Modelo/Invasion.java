@@ -5,13 +5,10 @@
  */
 package Modelo;
 
-<<<<<<< HEAD
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-=======
->>>>>>> a51eea26cfe8ef7652ee009fcd965bb6002dfdd9
+
+
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -19,6 +16,7 @@ import java.util.Collections;
  *
  * @author YUYAN
  */
+public class Invasion implements Serializable{
     
     private ArrayList<Humano> humanos;
     private ArrayList<HumanoCazaVampiros> caza_vampiros;

@@ -16,7 +16,7 @@ public class Constante {
     public static int CALENTAMIENTO = 1;
     public static int ENFRIAMIENTO = 2;
     public static int INVASION = 3;
-    public static String PATH = "/src/datos.bin";
+    public static String PATH = "src/datos.bin";
     
     public static boolean getTocadoProbabilidad(int num_total, int num_probabilidad) {
         return getNumeroAleatorio(1, num_total) <= num_probabilidad;
