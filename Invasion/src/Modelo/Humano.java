@@ -54,11 +54,7 @@ public class Humano extends Seres implements Serializable{
     public boolean getSobrevivir() {
         if (Constante.getTocadoProbabilidad(probabilidad_muerte_otro, 1)) {
             return false;
-        } else if (Constante.getTocadoProbabilidad(probabilidad_muerte, 1)) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return !Constante.getTocadoProbabilidad(probabilidad_muerte, 1);
     }
 
     public void setProbabilidadReproduccion(float temp) {

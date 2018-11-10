@@ -22,10 +22,11 @@ public class HumanoCazaVampiros extends Humano implements Serializable{
         super.setId(id_prox+1);
         num_vampiros = 0;
         id_prox += 1;
+        probabilidad_caza = 3;
     }
     
     public boolean getMataVampiro(){
-        return Constante.getTocadoProbabilidad(3,1);
+        return Constante.getTocadoProbabilidad(probabilidad_caza,1);
     }
     
     public void setMataVampiro(){

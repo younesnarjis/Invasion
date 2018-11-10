@@ -24,7 +24,6 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
     Invasion invacion;
     int acontecimiento;
     boolean pulsado;
-    String s;
 
     /**
      * Creates new form Inicio
@@ -35,7 +34,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
         invacion = inv;
         pulsado = false;
         acontecimiento = 0;
-        s = "";
+  
     }
 
     public void setTodoTextNoEditable() {
@@ -54,7 +53,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
 
     public void setIniciar() {
         setTodoTextNoEditable();
-        String h, c, v, z, d, t, s;
+        String h, c, v, z, d, t, inf;
         h = invacion.getNumeroHumanos();
         c = invacion.getNumeroHumanosCazaVampiros();
         z = invacion.getNumeroZombies();
@@ -63,14 +62,20 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
         t = invacion.getTemperatura();
         setInfoInicio(h, c, v, z);
         setInfoActual(h, c, v, z, d, t);
-        s = "-------------\nInicio del Mundo\n-------------\nDia: " + d + "     Temperatura: " + t;
-        s += "\n\nHa nacido " + h + " humanos";
-        s += "\nHa nacido " + c + " humanos de caza vampiros";
-        s += "\nHa nacido " + v + " vampiros";
-        s += "\nHa nacido " + z + " zombies";
+        inf = "-------------\nInicio del Mundo\n-------------\nDia: " + d + "     Temperatura: " + t;
+        inf += "\n\nHa nacido " + h + " humanos";
+        inf += "\nHa nacido " + c + " humanos de caza vampiros";
+        inf += "\nHa nacido " + v + " vampiros";
+        inf += "\nHa nacido " + z + " zombies";
 
-        jTextInfo.setText(s);
+        jTextInfo.setText(inf);
+
     }
+    
+    
+    
+    
+    
 
     public void setInfoInicio(String h, String c, String v, String z) {
         jTextCazaVampInicio.setText(c);
@@ -510,7 +515,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
         t = invacion.getTemperatura();
         setInfoActual(h, c, v, z, d, t);
         jTextInfo.append(invacion.toString());
-        s = s + invacion.toString();
+        System.out.println(invacion.toString());
         setActivarJButtonAcontecimiento();
     }
 
@@ -541,7 +546,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
                 System.out.println("Excepcion : " + ex);
                 
             }
-            System.out.println(s);
+           // System.out.println(s);
             System.exit(0);
         }
 
@@ -553,6 +558,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
         int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
             invacion.setGenerarMundo();
+            System.out.println(invacion.toString());
             setIniciar();
         }
     }//GEN-LAST:event_jButtonReiniciarActionPerformed
