@@ -534,6 +534,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
                 ObjectOutputStream out = new ObjectOutputStream(file);
                 out.writeObject(invacion);
                 out.close();
+                
             } catch (IOException ex) {
                 System.out.println("Excepcion : " + ex);
             }
