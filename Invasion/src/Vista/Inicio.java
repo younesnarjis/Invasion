@@ -24,6 +24,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
     Invasion invacion;
     int acontecimiento;
     boolean pulsado;
+    String s;
 
     /**
      * Creates new form Inicio
@@ -34,6 +35,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
         invacion = inv;
         pulsado = false;
         acontecimiento = 0;
+        s = "";
     }
 
     public void setTodoTextNoEditable() {
@@ -508,6 +510,7 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
         t = invacion.getTemperatura();
         setInfoActual(h, c, v, z, d, t);
         jTextInfo.append(invacion.toString());
+        s = s + invacion.toString();
         setActivarJButtonAcontecimiento();
     }
 
@@ -534,11 +537,11 @@ public class Inicio extends javax.swing.JFrame implements Serializable{
                 ObjectOutputStream out = new ObjectOutputStream(file);
                 out.writeObject(invacion);
                 out.close();
-                
             } catch (IOException ex) {
                 System.out.println("Excepcion : " + ex);
+                
             }
-
+            System.out.println(s);
             System.exit(0);
         }
 
